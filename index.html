@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mon jeu JS</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Mon jeu JS</h1>
+        <div class="contain">
+           <input type="number" name="num" id="num">
+           <button id="btn">OK</button>
+        </div>
+        
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(){
+            var num = document.getElementById("num").value;
+            var nombre = 30;
+           
+            while(num=!nombre){
+            if(num<(nombre-10)){
+            alert("Votre nombre est trop petit.");
+            } else if(num>=(nombre-10) && num<nombre){
+                alert("Votre êtes proche mais votre nombre est toujours plus petit."); 
+            } else if(num>nombre && num<=(nombre+10)){
+                alert("Votre êtes proche mais votre nombre est toujours plus grand."); 
+            }else if(num>(nombre+10)){
+                alert("Votre nombre est trop grand."); 
+            } else {
+                alert("Bravoo!!!!!(:");
+            }
+            }
+            
+        })
+        
+        
+    </script>
+</body>
+</html>
