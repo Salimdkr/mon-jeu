@@ -14,29 +14,33 @@
            <input type="number" name="num" id="num">
            <button id="btn">OK</button>
         </div>
-        
+        <p>Veuillez entrer votre nombre s'il vous plait!</p>
+    
+       
     </div>
 
     <script>
         document.getElementById("btn").addEventListener("click", function(){
             var num = document.getElementById("num").value;
-            var nombre = 30;
-           
-            while(num=!nombre){
-            if(num<(nombre-10)){
-            alert("Votre nombre est trop petit.");
-            } else if(num>=(nombre-10) && num<nombre){
-                alert("Votre êtes proche mais votre nombre est toujours plus petit."); 
-            } else if(num>nombre && num<=(nombre+10)){
-                alert("Votre êtes proche mais votre nombre est toujours plus grand."); 
-            }else if(num>(nombre+10)){
-                alert("Votre nombre est trop grand."); 
-            } else {
-                alert("Bravoo!!!!!(:");
-            }
-            }
+            var result =document.querySelector("p");
+            var nombre = 25; 
+                if(num<(nombre-10)){
+                    result.innerHTML="<strong>Dommage! votre nombre est trop petit. <p>Veuillez réessayer!!</p></strong>";
+                } else if (num>=(nombre-10) && num < nombre){
+                    result.innerHTML="<strong>Dommage! Vous êtes proche mais votre nombre est toujours plus petit. <p>Veuillez réessayer!!</p></strong>";
+                } else if(num>nombre && num<=(nombre+10)){
+                    result.innerHTML="<strong>Dommage! Votre êtes proche mais votre nombre est toujours plus grand.  <p>Veuillez réessayer!!</p></strong>";
+                } else if(num>(nombre+10)){
+                    result.innerHTML="<strong>Dommage! Votre nombre est trop grand. <p>Veuillez réessayer!!</p></strong>";
+                } else {
+                    result.innerHTML="<strong>Bravo!:) <p>Fin!!</p></strong>";
+                }
             
         })
+           
+           
+            
+       
         
         
     </script>
