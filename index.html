@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,40 +9,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>Mon jeu JS</h1>
+        <h1>Mon jeu JS</h1><br><br>
+        <h5>Générez un code avant de commencer</h5>
+        <p><button style='background-color: rgb(2, 175, 2); width: 200px;' id='générer'>Générer un nombre</button></p>
         <div class="contain">
            <input type="number" name="num" id="num">
            <button id="btn">OK</button>
         </div>
-        <p>Veuillez entrer votre nombre s'il vous plait!</p>
-    
-       
+        <p>Veuillez entrer votre nombre s'il vous plaît!</p>
     </div>
 
     <script>
-        document.getElementById("btn").addEventListener("click", function(){
-            var num = document.getElementById("num").value;
-            var result =document.querySelector("p");
-            var nombre = 25; 
-                if(num<(nombre-10)){
-                    result.innerHTML="<strong>Dommage! votre nombre est trop petit. <p>Veuillez réessayer!!</p></strong>";
-                } else if (num>=(nombre-10) && num < nombre){
-                    result.innerHTML="<strong>Dommage! Vous êtes proche mais votre nombre est toujours plus petit. <p>Veuillez réessayer!!</p></strong>";
-                } else if(num>nombre && num<=(nombre+10)){
-                    result.innerHTML="<strong>Dommage! Votre êtes proche mais votre nombre est toujours plus grand.  <p>Veuillez réessayer!!</p></strong>";
-                } else if(num>(nombre+10)){
-                    result.innerHTML="<strong>Dommage! Votre nombre est trop grand. <p>Veuillez réessayer!!</p></strong>";
-                } else {
-                    result.innerHTML="<strong>Bravo!:) <p>Fin!!</p></strong>";
-                }
-            
+        document.getElementById("générer").addEventListener("click", function aléatoire() {
+            var nombre = Math.floor(Math.random() * (200 - 1 + 1)) + 1;
+            return nombre;
         })
-           
-           
-            
-       
-        
-        
+      
+        document.getElementById("btn").addEventListener("click", function(){
+            var num = parseInt(document.getElementById("num").value);
+            var result = document.querySelector("p");
+            nombre=aléatoire();
+            if (isNaN(num)) {
+                result.innerHTML = "<strong>Veuillez entrer un nombre valide!</strong>";
+            } else if (num < (nombre - 10)) {
+                result.innerHTML = "<strong>Dommage! Votre nombre est trop petit. <p>Veuillez réessayer!!</p></strong>";
+            } else if (num >= (nombre - 10) && num < nombre) {
+                result.innerHTML = "<strong>Dommage! Vous êtes proche mais votre nombre est toujours plus petit. <p>Veuillez réessayer!!</p></strong>";
+            } else if (num > nombre && num <= (nombre + 10)) {
+                result.innerHTML = "<strong>Dommage! Vous êtes proche mais votre nombre est toujours plus grand.  <p>Veuillez réessayer!!</p></strong>";
+            } else if (num > (nombre + 10)) {
+                result.innerHTML = "<strong>Dommage! Votre nombre est trop grand. <p>Veuillez réessayer!!</p></strong>";
+            } else {
+                result.innerHTML = "<strong>Bravo! :) <p></p></strong>";
+                
+            }
+        });
     </script>
 </body>
 </html>
